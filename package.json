@@ -1,0 +1,19 @@
+{
+  "name": "airtable-leaderboard",
+  "version": "1.0.0",
+  "description": "A live leaderboard app that displays data from airtable",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "airtable": "^0.5.6",
+    "bottleneck": "^2.4.0",
+    "js-beautify": "^1.7.5",
+    "showdown": "^1.8.6"
+  }
+}
