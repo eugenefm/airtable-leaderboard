@@ -23,30 +23,11 @@ app.get("/api*", function(request, response) {
   response.status(400).end(JSON.stringify(responseObject));
 });
 
-// Documentation as homepage
-// via: https://markdown-webpage.glitch.me
-const fs = require("fs");
-const showdown = require("showdown");
-const markdownConverter = new showdown.Converter();
-
-const head =
-  '<html lang="en"><head><title>Airtable API Proxy</title>\
-<meta name="description" content="A proxy service for the Airtable API built with node.js on Glitch"></head><body>\
-<div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>';
-const footer =
-  '<script src="https://button.glitch.me/button.js" data-style="glitch"></script></body></html>';
-
-// when index route accessed, send readme converted to html
-app.get("/", function(req, res) {
-  fs.readFile("README.md", "utf8", function(err, data) {
-    if (err) {
-      return console.log(err);
-    }
-    res.send(head + markdownConverter.makeHtml(data) + footer);
-  });
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname + "/client/build/index.html"));
 });
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 5000;
 
 // listen for requests :)
 var listener = app.listen(port, function() {
