@@ -2,6 +2,7 @@
 // where your node app starts
 
 // init project
+require("dotenv").config({ path: __dirname + "/.env" });
 const express = require("express");
 const app = express();
 
@@ -45,7 +46,9 @@ app.get("/", function(req, res) {
   });
 });
 
+const port = process.env.PORT || 8080;
+
 // listen for requests :)
-var listener = app.listen(process.env.PORT, function() {
+var listener = app.listen(port, function() {
   console.log("Your app is listening on port " + listener.address().port);
 });

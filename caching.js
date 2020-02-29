@@ -5,7 +5,7 @@ const fs = require("fs");
 
 // ^ fs allows us to read or write to a file for caching
 
-var cacheInterval = 60 * 5; //5 minutes
+var cacheInterval = 10; //10 seconds
 
 // ^ If the cache is less than this many minutes old, serve it
 

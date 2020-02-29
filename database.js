@@ -5,7 +5,8 @@
 
 const tableRoutes = {
   ai: "AI in Science Fiction",
-  properties: "Science Fiction Properties"
+  properties: "Science Fiction Properties",
+  leaderboard: "Leaderboard"
 };
 
 // ^ These are the tables we'll be loading
@@ -71,7 +72,7 @@ module.exports = {
         base(tableNameFromRequest(request))
           .select({
             view: viewName,
-            pageSize: 3 //This page size is unnecessarily small, for demonstration purposes.
+            pageSize: 100 //This page size is unnecessarily small, for demonstration purposes.
             //You should probably use the default of 100 in your own code.
           })
           .eachPage(
