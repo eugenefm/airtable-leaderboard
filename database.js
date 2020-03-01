@@ -4,17 +4,12 @@
 // ⚠️ Configure routes between API paths and tables here!
 
 const tableRoutes = {
-  ai: "AI in Science Fiction",
-  properties: "Science Fiction Properties",
   leaderboard: "Leaderboard"
 };
 
 // ^ These are the tables we'll be loading
 // The :table parameter in the path /api/:table/list/:page
-// should match to keys in this object, example:
-
-// https://airtable-api-proxy.glitch.me/api/ai/list/0
-// maps to 'AI in Science Fiction'
+// should match to keys in this object.
 
 const viewName = "Grid view";
 
@@ -72,8 +67,7 @@ module.exports = {
         base(tableNameFromRequest(request))
           .select({
             view: viewName,
-            pageSize: 100 //This page size is unnecessarily small, for demonstration purposes.
-            //You should probably use the default of 100 in your own code.
+            pageSize: 100
           })
           .eachPage(
             function page(records, fetchNextPage) {

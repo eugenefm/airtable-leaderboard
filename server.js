@@ -7,6 +7,7 @@ const express = require("express");
 const path = require("path");
 const app = express();
 
+// Serve static files from react build folder
 app.use(express.static(path.join(__dirname, "client/build")));
 
 // API route to list rows from Airtable:
@@ -26,7 +27,8 @@ app.get("/api*", function(request, response) {
   response.status(400).end(JSON.stringify(responseObject));
 });
 
-app.get("*", (req, res) => {
+// serve any other routes my build index
+app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname + "/client/build/index.html"));
 });
 
